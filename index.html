@@ -35,9 +35,10 @@
             var gender2 = document.querySelector('input[name="gender2"]:checked').value;
             var result = document.getElementById('result');
             if (gender1 === gender2) {
-                result.textContent = 'Sorry, there is no love between ' + name1 + ' and ' + name2 + '.';
+                result.textContent = 'Your custom message goes here.';
             } else {
-                result.textContent = 'There might be love between ' + name1 + ' and ' + name2 + '!';
+                var lovePercent = Math.floor(Math.random() * 101);
+                result.textContent = 'There is a ' + lovePercent + '% chance of love between ' + name1 + ' and ' + name2 + '!';
             }
         }
     </script>
