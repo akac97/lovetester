@@ -7,29 +7,38 @@
         }
         #result {
             margin-top: 20px;
-            font-size: 20px;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
     <h1>Love Tester</h1>
-    <label for="name">Your Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="gender">Your Gender:</label><br>
-    <select id="gender" name="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-    </select><br>
-    <button onclick="generateLoveScore()">Test Love</button>
+    <label for="name1">Name 1:</label><br>
+    <input type="text" id="name1" name="name1"><br>
+    <input type="radio" id="male1" name="gender1" value="male">
+    <label for="male1">Male</label><br>
+    <input type="radio" id="female1" name="gender1" value="female">
+    <label for="female1">Female</label><br>
+    <label for="name2">Name 2:</label><br>
+    <input type="text" id="name2" name="name2"><br>
+    <input type="radio" id="male2" name="gender2" value="male">
+    <label for="male2">Male</label><br>
+    <input type="radio" id="female2" name="gender2" value="female">
+    <label for="female2">Female</label><br>
+    <button onclick="checkLove()">Test Love</button>
     <p id="result"></p>
-
     <script>
-        function generateLoveScore() {
-            const name = document.getElementById('name').value;
-            const gender = document.getElementById('gender').value;
-            const score = Math.floor(Math.random() * 101);
-            document.getElementById('result').innerText = `Hello ${name} (${gender}), your love score is ${score}%!`;
+        function checkLove() {
+            var name1 = document.getElementById('name1').value;
+            var name2 = document.getElementById('name2').value;
+            var gender1 = document.querySelector('input[name="gender1"]:checked').value;
+            var gender2 = document.querySelector('input[name="gender2"]:checked').value;
+            var result = document.getElementById('result');
+            if (gender1 === gender2) {
+                result.textContent = 'Sorry, there is no love between ' + name1 + ' and ' + name2 + '.';
+            } else {
+                result.textContent = 'There might be love between ' + name1 + ' and ' + name2 + '!';
+            }
         }
     </script>
 </body>
